@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import "@lrnwebcomponents/meme-maker/meme-maker.jg";
+import "@lrnwebcomponents/meme-maker/meme-maker.js";
 
 const jalen = new URL('https://cdn.abcotvs.com/dip/images/12752170_jalen-hurts-top-things-img.jpg?w=1600', import.meta.url).href;
 
