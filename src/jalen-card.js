@@ -133,7 +133,7 @@ export class JalenCard extends LitElement {
     return html`
       <div class="wrapper">
         <div class="container">
-          <img class="image" src="${jalen}"/>
+          <img class="image" src="${jalen}">
           <div class="header">
             <h3>${this.name}</h3>
             <h4>${this.position}</h4>
