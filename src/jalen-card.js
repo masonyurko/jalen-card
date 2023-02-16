@@ -1,86 +1,150 @@
 import { LitElement, html, css } from 'lit';
 
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
+const jalen = new URL('https://cdn.abcotvs.com/dip/images/12752170_jalen-hurts-top-things-img.jpg?w=1600', import.meta.url).href;
 
-class JalenCard extends LitElement {
-  static properties = {
-    header: { type: String },
+export class JalenCard extends LitElement {
+  static get properties() {
+    return {
+      name: {
+        type: String,
+        reflect: true
+      },
+      position: {
+        type: String,
+      }
+    }
   }
 
-  static styles = css`
-    :host {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      font-size: calc(10px + 2vmin);
-      color: #1a2b42;
-      max-width: 960px;
-      margin: 0 auto;
-      text-align: center;
-      background-color: var(--jalen-card-background-color);
-    }
-
-    main {
-      flex-grow: 1;
-    }
-
-    .logo {
-      margin-top: 36px;
-      animation: app-logo-spin infinite 20s linear;
-    }
-
-    @keyframes app-logo-spin {
-      from {
-        transform: rotate(0deg);
+  static get styles() {
+    return css`
+      .wrapper {
+        width: 400px;
+        border: 2px solid #004c54;
+        display: inline-flex;
       }
-      to {
-        transform: rotate(360deg);
+
+      .image {
+        width: 400px;
       }
-    }
 
-    .app-footer {
-      font-size: calc(12px + 0.5vmin);
-      align-items: center;
-    }
+      .header {
+        text-align: center;
+        font-weight: bold;
+        font-size: 2rem;
+      }
 
-    .app-footer a {
-      margin-left: 5px;
-    }
-  `;
+      .header h3:hover {
+        font-style: italic;
+        font-size: 1.1em;
+      }
+
+      .header h3,
+      .header h4 {
+        transition: .3s ease-in-out all;
+        margin: 16px;
+        font-size: normal;
+        color: #004c54
+      }
+
+      .buttons button:focus,
+      buttons button:hover {
+        background-color: darkgray;
+      }
+
+      buttons button:active {
+        background-color: darkgray;
+      }
+
+      .buttons {
+        display: block;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 32px;
+      }
+
+      details {
+        margin-left: 24px;
+        padding: 10px;
+        color: black;
+      }
+
+      .details summary {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      @media only screen and (max-width: 1200px) {
+        .wrapper {
+          background-color: #004c54
+          
+        }
+        .header h3,
+        .header h4 {
+          color: silver;
+        }
+        .details {
+          color: silver;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .wrapper {
+          background-color: black;
+        }
+        .header h3,
+        .header h4 {
+          color: white;
+        }
+        .details {
+          color: white;
+        }
+      }
+
+      @media only screen and (max-width: 425px) {
+        .wrapper {
+          font-weight: normal;
+        }
+        .wrapper .header h3 {
+          font-size: 12px;
+        }
+        .wrapper .header h4 {
+          font-size: 10px !important;
+        }
+        details {
+          display: none;
+        }
+      }
+      `;
+  }
 
   constructor() {
     super();
-    this.header = 'My app';
+    this.name = "Jalen Hurts";
+    this.position = "Quarterback";
   }
 
   render() {
     return html`
-      <main>
-        <div class="logo"><img alt="open-wc logo" src=${logo} /></div>
-        <h1>${this.header}</h1>
-
-        <p>Edit <code>src/JalenCard.js</code> and save to reload.</p>
-        <a
-          class="app-link"
-          href="https://open-wc.org/guides/developing-components/code-examples/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Code examples
-        </a>
-      </main>
-
-      <p class="app-footer">
-        🚽 Made with love by
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/open-wc"
-          >open-wc</a
-        >.
-      </p>
+      <div class="wrapper">
+        <div class="container">
+          <img class="image" src="${jalen}"/>
+          <div class="header">
+            <h3>${this.name}</h3>
+            <h4>${this.position}</h4>
+          </div>
+          <details class="details">
+            <summary>Career Stats</summary>
+            <div>
+              <ul>
+                <li>(SHOULD'VE BEEN) SUPERBOWL MVP</li>
+                <li>BEST QUARTERBACK IN THE LEAGUE</li>
+              </ul>
+            </div>
+          </details>
+          </div>
+      </div>
     `;
   }
 }

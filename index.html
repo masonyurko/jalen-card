@@ -19,10 +19,59 @@
   <title>jalen-card</title>
 </head>
 
-<body>
-  <jalen-card></jalen-card>
 
+<body>
+  <div class="buttons">
+    <button class ="duplicate">Duplicate Last Card</button>
+    <button class ="modifytitle">Change Name</button>
+    <button id="deletelastcard">Delete</button>
+    <button data-toggle-btn>Toggle Stats</button>
+  </div>
+  <div id="app">
+  <jalen-card></jalen-card>
+</div>
   <script type="module" src="./src/jalen-card.js"></script>
+  <script>
+
+// toggle instance of stats
+document.querySelector('button[data-toggle-btn]').addEventListener('click', (e) => {
+  const details = document.querySelector('jalen-card').shadowRoot.querySelector('details')
+  console.log(details);
+  if (details.getAttribute('open')) {
+    details.removeAttribute('open');
+  }
+  else {
+    details.setAttribute('open','open');
+  }
+});
+
+// duplicate item
+document.querySelector('.duplicate').addEventListener('click', function(e) {
+  const itemToClone = document.querySelector('jalen-card').cloneNode();
+  document.querySelector('#app').appendChild(itemToClone);
+});
+
+// modify name
+document.querySelector('.modifytitle').addEventListener('click', function(e) {
+  let name = prompt("Name Jalen...");
+  if (name) {
+    document.querySelector('jalen-card').name = name;
+  }
+});
+
+// delete last item
+document.querySelector('#deletelastcard').addEventListener('click', function(e) {
+  let wantsTo = confirm("Are you sure?");
+  if (wantsTo) {
+    if (document.querySelector('#app :last-child') !== document.querySelector('jalen-card')) {
+      document.querySelector('#app :last-child').remove();
+    }
+    else {
+      alert("YOU CANNOT DELETE JALEN >:(");
+    }
+  }
+});
+  </script>
 </body>
 
 </html>
