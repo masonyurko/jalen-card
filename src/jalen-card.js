@@ -9,9 +9,11 @@ export class JalenCard extends LitElement {
         type: String,
         reflect: true
       },
+      fname: { type: String},
       position: {
         type: String,
-      }
+      },
+      statsLabel: { type: String},
     }
   }
 
@@ -123,6 +125,7 @@ export class JalenCard extends LitElement {
     super();
     this.name = "Jalen Hurts";
     this.position = "Quarterback";
+    this.statsLabel = "Career Stats";
   }
 
   render() {
@@ -135,7 +138,7 @@ export class JalenCard extends LitElement {
             <h4>${this.position}</h4>
           </div>
           <details class="details">
-            <summary>Career Stats</summary>
+            <summary>${this.statsLabel}</summary>
             <div>
               <slot></slot>
             </div>
