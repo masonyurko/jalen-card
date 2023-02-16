@@ -137,10 +137,7 @@ export class JalenCard extends LitElement {
           <details class="details">
             <summary>Career Stats</summary>
             <div>
-              <ul>
-                <li>(SHOULD'VE BEEN) SUPERBOWL MVP</li>
-                <li>BEST QUARTERBACK IN THE LEAGUE</li>
-              </ul>
+              <slot></slot>
             </div>
           </details>
           </div>
