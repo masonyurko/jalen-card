@@ -14,6 +14,7 @@ export class JalenCard extends LitElement {
       position: {
         type: String,
       },
+      top: { type: String},
       statsLabel: { type: String},
     }
   }
@@ -127,13 +128,17 @@ export class JalenCard extends LitElement {
     this.name = "Jalen Hurts";
     this.position = "Quarterback";
     this.statsLabel = "Career Stats";
+    this.top ="MVP";
   }
 
   render() {
     return html`
       <div class="wrapper">
         <div class="container">
-          <img class="image" src="${jalen}">
+          <meme-maker
+            image-url="${jalen}"
+            top-text="${this.top}">
+          </meme-maker>
           <div class="header">
             <h3>${this.name}</h3>
             <h4>${this.position}</h4>
