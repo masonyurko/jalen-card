@@ -131,10 +131,10 @@ export class JalenCard extends LitElement {
 
   constructor() {
     super();
-    this.name = "Jalen Hurts";
-    this.position = "Quarterback";
-    this.statsLabel = "Career Stats";
-    this.top ="MVP";
+    this.name="Jalen Hurts";
+    this.position="Quarterback";
+    this.statsLabel="Career Stats";
+    this.top="MVP";
   }
 
   render() {
