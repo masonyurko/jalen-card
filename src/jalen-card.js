@@ -38,8 +38,8 @@ export class JalenCard extends LitElement {
       }
 
       .header h3:hover {
-        font-style: italic;
         font-size: 1.1em;
+        text-shadow: 2px 2px 5px black;
       }
 
       .header h3,
@@ -91,6 +91,9 @@ export class JalenCard extends LitElement {
         .details {
           color: silver;
         }
+        .header h3:hover {
+          text-shadow: 2px 2px 5px black;
+        }
       }
 
       @media only screen and (max-width: 600px) {
@@ -103,6 +106,9 @@ export class JalenCard extends LitElement {
         }
         .details {
           color: white;
+        }
+        .header h3:hover {
+          text-shadow: 2px 2px 5px white;
         }
       }
 
