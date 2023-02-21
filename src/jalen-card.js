@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import "@lrnwebcomponents/meme-maker/meme-maker.js";
 
-const jalen = new URL('https://cdn.abcotvs.com/dip/images/12752170_jalen-hurts-top-things-img.jpg?w=1600', import.meta.url).href;
+const jalen = new URL('../assets/jalen.jpg', import.meta.url).href;
 
 export class JalenCard extends LitElement {
   static get properties() {
