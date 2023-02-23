@@ -16,6 +16,9 @@ export class JalenCard extends LitElement {
       },
       top: { type: String},
       statsLabel: { type: String},
+      opened: { 
+        type: Boolean,
+        reflect: true},
     }
   }
 
@@ -135,6 +138,7 @@ export class JalenCard extends LitElement {
     this.position="Quarterback";
     this.statsLabel="Career Stats";
     this.top="MVP";
+    this.opened="false";
   }
 
   render() {
@@ -149,10 +153,10 @@ export class JalenCard extends LitElement {
             <h3>${this.name}</h3>
             <h4>${this.position}</h4>
           </div>
-          <details class="details">
+          <details class="details" .opened=${this.opened}>
             <summary>${this.statsLabel}</summary>
             <div>
-              <slot></slot>
+            <slot></slot>
             </div>
           </details>
           </div>

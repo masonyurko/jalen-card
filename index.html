@@ -36,7 +36,6 @@
       <li>BEST QUARTERBACK IN THE LEAGUE</li>
     </ul>
   </jalen-card>
-
 </div>
   <script type="module" src="./src/jalen-card.js"></script>
   <script>
@@ -55,7 +54,7 @@ document.querySelector('button[data-toggle-btn]').addEventListener('click', (e) 
 
 // duplicate item
 document.querySelector('.duplicate').addEventListener('click', function(e) {
-  const itemToClone = document.querySelector('jalen-card').cloneNode();
+  const itemToClone = document.querySelector('jalen-card').cloneNode(true);
   document.querySelector('#app').appendChild(itemToClone);
 });
 
@@ -71,8 +70,8 @@ document.querySelector('.modifytitle').addEventListener('click', function(e) {
 document.querySelector('#deletelastcard').addEventListener('click', function(e) {
   let wantsTo = confirm("Are you sure?");
   if (wantsTo) {
-    if (document.querySelector('#app :last-child') !== document.querySelector('jalen-card')) {
-      document.querySelector('#app :last-child').remove();
+    if (document.querySelector('#app jalen-card:last-child') !== document.querySelector('jalen-card')) {
+      document.querySelector('#app jalen-card:last-child').remove();
     }
     else {
       alert("YOU CANNOT DELETE JALEN >:(");
