@@ -27,7 +27,7 @@
     <button class ="duplicate">Duplicate Last Card</button>
     <button class ="modifytitle">Change Name</button>
     <button id="deletelastcard">Delete</button>
-    <button data-toggle-btn>Toggle Stats</button>
+    <button onclick="toggleDetails()" class="details">Toggle Stats</button>
   </div>
   <div id="app">
   <jalen-card>
@@ -40,17 +40,10 @@
   <script type="module" src="./src/jalen-card.js"></script>
   <script>
 
-// toggle instance of stats
-document.querySelector('button[data-toggle-btn]').addEventListener('click', (e) => {
-  const details = document.querySelector('jalen-card').shadowRoot.querySelector('details')
-  console.log(details);
-  if (details.getAttribute('open')) {
-    details.removeAttribute('open');
-  }
-  else {
-    details.setAttribute('open','open');
-  }
-});
+// toggle stats
+function toggleDetails() {
+  document.querySelector("jalen-card").toggleDetails();
+}
 
 // duplicate item
 document.querySelector('.duplicate').addEventListener('click', function(e) {

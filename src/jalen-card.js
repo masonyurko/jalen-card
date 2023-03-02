@@ -15,6 +15,7 @@ export class JalenCard extends LitElement {
         type: String,
       },
       top: { type: String},
+      
       statsLabel: { type: String},
       opened: { 
         type: Boolean,
@@ -141,6 +142,10 @@ export class JalenCard extends LitElement {
     this.opened="false";
   }
 
+  toggleDetails() {
+    this.shadowRoot.querySelector('.details').toggleAttribute('open');
+  }
+
   render() {
     return html`
       <div class="wrapper">
@@ -153,7 +158,7 @@ export class JalenCard extends LitElement {
             <h3>${this.name}</h3>
             <h4>${this.position}</h4>
           </div>
-          <details class="details" .opened=${this.opened}>
+          <details class="details">
             <summary>${this.statsLabel}</summary>
             <div>
             <slot></slot>
