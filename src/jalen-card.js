@@ -146,6 +146,15 @@ export class JalenCard extends LitElement {
     this.shadowRoot.querySelector('.details').toggleAttribute('open');
   }
 
+  toggleEvent(e) {
+    const state = this.shadowRoot.querySelector('.details').getAttribute('open') === '' ? true : false;
+    this.opened = state;
+  }
+
+  clickEvent(e) {
+    
+  }
+
   render() {
     return html`
       <div class="wrapper">

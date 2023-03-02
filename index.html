@@ -40,6 +40,14 @@
   <script type="module" src="./src/jalen-card.js"></script>
   <script>
 
+
+document.body.addEventListener('opened-changed', (e) => {
+  if (e.target == document.querySelector('jalen-card')) 
+  {
+    document.querySelector('.details').innerText = e.detail.value ? 'Close Stats' : 'Open Stats';
+  }
+});
+
 // toggle stats
 function toggleDetails() {
   document.querySelector("jalen-card").toggleDetails();
