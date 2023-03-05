@@ -140,6 +140,7 @@ export class JalenCard extends LitElement {
     this.statsLabel="Career Stats";
     this.top="MVP";
     this.opened="false";
+
   }
 
   toggleDetails() {
@@ -152,10 +153,28 @@ export class JalenCard extends LitElement {
   }
 
   clickEvent(e) {
-    
+    this.opened = !this.opened;
   }
 
-  render() {
+  updated(changedProperties) {
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'opened') {
+        this.dispatchEvent(new CustomEvent('opened-changed', 
+        {
+          composed: true,
+          bubbles: true,
+          cancelable: false,
+          detail: {
+            value: this[propName]
+          }
+        }
+        ));
+        console.log('${propName} changed. oldValue: ${oldValue}');
+      }
+    });
+    }
+  
+    render() {
     return html`
       <div class="wrapper">
         <div class="container">
@@ -167,7 +186,7 @@ export class JalenCard extends LitElement {
             <h3>${this.name}</h3>
             <h4>${this.position}</h4>
           </div>
-          <details class="details">
+          <details class="details" .open="${this.opened}" @toggle="${this.toggleEvent}">
             <summary>${this.statsLabel}</summary>
             <div>
             <slot></slot>
