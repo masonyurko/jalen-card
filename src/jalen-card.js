@@ -138,7 +138,6 @@ export class JalenCard extends LitElement {
     this.statsLabel="Career Stats";
     this.top="MVP";
     this.opened="false";
-    this.image= "${jalen}";
   }
 
   toggleDetails() {
