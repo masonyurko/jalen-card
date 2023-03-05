@@ -17,6 +17,7 @@ export class JalenCard extends LitElement {
       top: { type: String},
       
       statsLabel: { type: String},
+      
       opened: { 
         type: Boolean,
         reflect: true},
