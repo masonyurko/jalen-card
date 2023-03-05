@@ -10,10 +10,7 @@ export class JalenCard extends LitElement {
         type: String,
         reflect: true
       },
-      fname: { type: String},
-      position: {
-        type: String,
-      },
+
       top: { type: String},
       
       statsLabel: { type: String},
@@ -141,7 +138,7 @@ export class JalenCard extends LitElement {
     this.statsLabel="Career Stats";
     this.top="MVP";
     this.opened="false";
-
+    this.image= "${jalen}";
   }
 
   toggleDetails() {
