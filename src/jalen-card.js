@@ -187,7 +187,7 @@ export class JalenCard extends LitElement {
             <h3>${this.name}</h3>
             <h4>${this.position}</h4>
           </div>
-          <details class="details" .open="${this.opened}" @toggle="${this.toggleEvent}">
+          <details class="details" .opened="${this.opened}" @toggle="${this.toggleEvent}">
             <summary>${this.statsLabel}</summary>
             <div>
             <slot></slot>
