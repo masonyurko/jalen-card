@@ -10,6 +10,7 @@ export class JalenCard extends LitElement {
         type: String,
         reflect: true
       },
+      position: { type: String},
 
       top: { type: String},
       
@@ -137,7 +138,7 @@ export class JalenCard extends LitElement {
     this.position="Quarterback";
     this.statsLabel="Career Stats";
     this.top="MVP";
-    this.opened="false";
+    this.opened=false;
   }
 
   toggleDetails() {
@@ -183,7 +184,7 @@ export class JalenCard extends LitElement {
             <h3>${this.name}</h3>
             <h4>${this.position}</h4>
           </div>
-          <details class="details" .opened="${this.opened}" @toggle="${this.toggleEvent}">
+          <details class="details" .open="${this.opened}" @toggle="${this.toggleEvent}">
             <summary>${this.statsLabel}</summary>
             <div>
             <slot></slot>
